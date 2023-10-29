@@ -8,7 +8,7 @@ from datetime import datetime
 #from colorama import init
 #init(autoreset=True)
 
-def generate_cfn_tack_name():
+def generate_cfn_stack_name():
     """Function printing python version."""
     stack_name_suffix = input("Enter the stack name suffix (e.g.,'s1' for 'stack1'):") or "s1"
     print("The stack name (suffix) is:", stack_name_suffix)
@@ -18,4 +18,4 @@ def generate_cfn_tack_name():
     print("The stack name is:", stack_name)
 
 # Call the function
-generate_cfn_tack_name()
+generate_cfn_stack_name()
