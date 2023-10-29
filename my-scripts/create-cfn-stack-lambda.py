@@ -5,19 +5,23 @@ from datetime import datetime
 #TODO:
 # Stack name input validation.
 
+#REF:
+# https://aws.amazon.com/blogs/infrastructure-and-automation/scheduling-automatic-deletion-of-aws-cloudformation-stacks/
+# https://medium.com/@shotin93/how-to-schedule-to-create-aws-cloudformation-stack-861bd1feba7f
+
 # Set the region variable for CFN API call.
-CFN_STACK_REGION = 'ap-southeast-2'
+CFN_STACK_REGION = '<putAWSRegionNameHere>'
 
 # Set CFN API call parameter values.
 STACK_NAME_PREFIX = 's' # s for stack 
-TEMPLATE_URL = 'https://nfw-so-shared-1-1693524950.s3.amazonaws.com/cfn-templates/main-menu.yaml'
-MAIN_STACK_SELECTION = 'Adv-Distributed-model-Dual-AZ-PublicResource-Behind-NetworkFirewall'
+TEMPLATE_URL = '<putURLHere>'
+MAIN_STACK_SELECTION = '<putStackSelectionHere>'
 ENABLE_AUTO_DELETE = 'yes'
 TTL = '6'
-AZ1_SELECTION = 'ap-southeast-2a'
-AZ2_SELECTION = 'ap-southeast-2b'
-INSTANCE_TYPE = 't2.nano'
-KEY_PAIR = 'lorikeets-test-key'
+AZ1_SELECTION = '<putAWSAZnNameHere>'
+AZ2_SELECTION = '<putAWSAZnNameHere>'
+INSTANCE_TYPE = '<putInstanceTypeHere>'
+KEY_PAIR = '<putKeyPairHere>'
 
 # Set CFN client (to a variable called cfn_client). 
 # This cfn_client is what allows us to call CF API.
@@ -65,7 +69,7 @@ def lambda_handler(event, context):
                 },
                 {
                     'ParameterKey': 'TTL',
-                    'ParameterValue': TTL # Deploy stack for 6h to cover time available for life contact work
+                    'ParameterValue': TTL 
                 },
                 {
                     'ParameterKey': 'AvailabilityZone1Selection',
